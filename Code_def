@@ -77,12 +77,15 @@ def LED_Alert():
 time = 0
 threshold = [300 , 300 , 300 , 300 , 300 , 300 , 300 , 300]
 NOP = 0.1
+a = 0
+b = 0
+c = 0
 #----------Speed----------#
-speed_max = 0
-speed_min1 = 0
-speed_min2 = 0
-speed_min3 = 0
-speed_min4 = 0
+speed_max = 50
+speed_min1 = 30
+speed_min2 = 30
+speed_min3 = 30
+speed_min4 = 40
 
 #----------Signal----------#
 
@@ -103,49 +106,49 @@ full_den = -8
 #----------Def_motor----------#
 
 def di_thang():
-    lm.setVelocit(speed_max)
+    lm.setVelocity(speed_max)
     rm.setVelocity(speed_max)
  
 def chinh_phai1():
-    lm.setVelocit(speed_max)
-    rm.setVelocity(speed_max - speed_min)
+    lm.setVelocity(speed_max)
+    rm.setVelocity(speed_max - speed_min1)
   
 def chinh_trai1():
-    lm.setVelocit(speed_max - speed_min)
+    lm.setVelocity(speed_max - speed_min1)
     rm.setVelocity(speed_max)
     
 def chinh_phai2():
-    lm.setVelocit(speed_max)
-    rm.setVelocity(speed_max - speed_min)
+    lm.setVelocity(speed_max)
+    rm.setVelocity(speed_max - speed_min2)
   
 def chinh_trai2():
-    lm.setVelocit(speed_max - speed_min)
+    lm.setVelocity(speed_max - speed_min2)
     rm.setVelocity(speed_max)
     
 def chinh_phai3():
-    lm.setVelocit(speed_max)
-    rm.setVelocity(speed_max - speed_min)
+    lm.setVelocity(speed_max)
+    rm.setVelocity(speed_max - speed_min3)
   
 def chinh_trai3():
-    lm.setVelocit(speed_max - speed_min)
+    lm.setVelocity(speed_max - speed_min3)
     rm.setVelocity(speed_max)
     
 def chinh_phai4():
-    lm.setVelocit(speed_max)
-    rm.setVelocity(speed_max - speed_min)
+    lm.setVelocity(speed_max)
+    rm.setVelocity(speed_max - speed_min4)
   
 def chinh_trai4():
-    lm.setVelocit(speed_max - speed_min)
+    lm.setVelocity(speed_max - speed_min4)
     rm.setVelocity(speed_max)
     
 #----------Turn----------#
     
-def re_phai1():
-    lm.setVelocit(speed_max)
-    rm.setVelocity(speed_max - speed_min)
+def re_phai():
+    lm.setVelocity(speed_max)
+    rm.setVelocity(0)
   
-def re_trai1():
-    lm.setVelocit(speed_max - speed_min)
+def re_trai():
+    lm.setVelocity(0)
     rm.setVelocity(speed_max)
 
 #----------Def_sensor----------#
@@ -209,5 +212,44 @@ while robot.step(TIME_STEP) != -1:
     print(" ")
     print('Pos: ' + str(format(filted, '08b')), end='   ')
     
-    if pos == MID:
+    if pos == chinh_giua:
         di_thang()
+    elif pos == lech_phai1:
+        chinh_trai1()
+    elif pos == lech_trai1:
+        chinh_phai1()
+        
+    elif pos == lech_phai2:
+        chinh_trai2()
+    elif pos == lech_trai2:
+        chinh_phai2()
+        
+    elif pos == lech_phai3:
+        chinh_trai3()
+    elif pos == lech_trai3:
+        chinh_phai3()
+        
+    elif pos == lech_phai4:
+        chinh_trai4()
+    elif pos == lech_trai4:
+        chinh_phai4()
+        
+    elif pos == re_phai:
+        a = a + 1
+    elif pos == re_trai:
+        b = b + 1
+     
+    elif pos == full_den and a == 0:
+        di_thang()
+    elif pos == full_den and a == 1:
+        re_phai()
+        a = 0
+        
+    elif pos == full_trang and b == 0 and a== 0:
+        di_thang()
+    elif pos == full_trang and b == 1:
+        re_trai()
+        b = 0  
+    elif pos == full_trang and a == 1:
+        re_phai()
+        a = 0      
