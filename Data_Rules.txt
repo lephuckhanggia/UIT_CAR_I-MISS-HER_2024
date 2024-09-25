@@ -1,0 +1,8 @@
+Link thể lệ bảng Mở rộng:
+https://docs.google.com/document/d/1ZpIKOjLiFDB3xWwJhDWz1ZTOnJc_HIujNp5ALUoA4YI/edit
+
+Link git;
+https://github.com/lephuckhanggia/UIT_CAR_I-MISS-HER_2024/tree/main
+
+Link Webots 2023
+https://cyberbotics.com/#download
