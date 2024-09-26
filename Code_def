@@ -80,12 +80,15 @@ NOP = 0.1
 a = 0
 b = 0
 c = 0
+d = 0
+e = 0
+f = 0
 #----------Speed----------#
-speed_max = 50
+speed_max = 60
 speed_min1 = 30
-speed_min2 = 30
-speed_min3 = 30
-speed_min4 = 40
+speed_min2 = 40
+speed_min3 = 50
+speed_cua = 15
 
 #----------Signal----------#
 
@@ -135,21 +138,21 @@ def chinh_trai3():
     
 def chinh_phai4():
     lm.setVelocity(speed_max)
-    rm.setVelocity(speed_max - speed_min4)
+    rm.setVelocity(0)
   
 def chinh_trai4():
-    lm.setVelocity(speed_max - speed_min4)
+    lm.setVelocity(0)
     rm.setVelocity(speed_max)
     
 #----------Turn----------#
     
 def re_phai():
-    lm.setVelocity(speed_max)
-    rm.setVelocity(0)
+    lm.setVelocity(speed_cua)
+    rm.setVelocity(speed_cua - speed_cua*2)
   
 def re_trai():
-    lm.setVelocity(0)
-    rm.setVelocity(speed_max)
+    lm.setVelocity(speed_cua - speed_cua*2)
+    rm.setVelocity(speed_cua)
 
 #----------Def_sensor----------#
 def ReadSensors():
@@ -210,46 +213,62 @@ while robot.step(TIME_STEP) != -1:
     dis = ds.getValue()
     pos = DeterminePosition(filted)
     print(" ")
+    print(f"{f}  {e}")
     print('Pos: ' + str(format(filted, '08b')), end='   ')
     
-    if pos == chinh_giua:
+    if pos == chinh_giua and c == 0 and f == 0:
         di_thang()
-    elif pos == lech_phai1:
+        a = 0
+        b = 0
+    elif pos == chinh_giua and c != 0:
+        re_phai()
+    elif pos == chinh_giua and f != 0:
+        print("hello")
+        re_trai()
+        
+    elif pos == lech_phai1 and c == 0 and f == 0:
         chinh_trai1()
-    elif pos == lech_trai1:
+    elif pos == lech_trai1 and c == 0 and f == 0:
         chinh_phai1()
         
-    elif pos == lech_phai2:
+    elif pos == lech_phai2 and c == 0 and f == 0:
         chinh_trai2()
-    elif pos == lech_trai2:
+    elif pos == lech_trai2 and c == 0 and f == 0:
         chinh_phai2()
         
-    elif pos == lech_phai3:
+    elif pos == lech_phai3 and c == 0 and f == 0:
         chinh_trai3()
-    elif pos == lech_trai3:
+    elif pos == lech_trai3 and c == 0 and f == 0:
         chinh_phai3()
         
-    elif pos == lech_phai4:
+    elif pos == lech_phai4 and c == 0:
         chinh_trai4()
-    elif pos == lech_trai4:
+        f = 0
+    elif pos == lech_trai4 and f == 0:
         chinh_phai4()
+        c = 0
         
     elif pos == re_phai:
         a = a + 1
+        d = d + 1
     elif pos == re_trai:
         b = b + 1
+        e = e + 1
      
-    elif pos == full_den and a == 0:
-        di_thang()
-    elif pos == full_den and a == 1:
+    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0:
+        di_thang() 
+    elif pos == full_den and a != 0:
         re_phai()
-        a = 0
-        
-    elif pos == full_trang and b == 0 and a== 0:
-        di_thang()
-    elif pos == full_trang and b == 1:
+        d = 0
+    elif pos == full_den and b != 0:
         re_trai()
-        b = 0  
-    elif pos == full_trang and a == 1:
-        re_phai()
-        a = 0      
+        e = 0
+        
+    elif pos == full_trang and d == 0 and e == 0:
+        di_thang()
+    elif pos == full_trang and d != 0:
+        c = c + 1   
+        d = 0 
+    elif pos == full_trang and e != 0:
+        f = f + 1
+        e = 0
