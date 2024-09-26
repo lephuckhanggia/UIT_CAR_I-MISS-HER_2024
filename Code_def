@@ -85,10 +85,10 @@ e = 0
 f = 0
 #----------Speed----------#
 speed_max = 60
-speed_min1 = 30
-speed_min2 = 40
+speed_min1 = 15
+speed_min2 = 35
 speed_min3 = 50
-speed_cua = 15
+speed_cua = 25
 
 #----------Signal----------#
 
@@ -213,7 +213,7 @@ while robot.step(TIME_STEP) != -1:
     dis = ds.getValue()
     pos = DeterminePosition(filted)
     print(" ")
-    print(f"{f}  {e}")
+    print(f"{c}  {d}")
     print('Pos: ' + str(format(filted, '08b')), end='   ')
     
     if pos == chinh_giua and c == 0 and f == 0:
@@ -223,27 +223,53 @@ while robot.step(TIME_STEP) != -1:
     elif pos == chinh_giua and c != 0:
         re_phai()
     elif pos == chinh_giua and f != 0:
-        print("hello")
         re_trai()
         
     elif pos == lech_phai1 and c == 0 and f == 0:
         chinh_trai1()
     elif pos == lech_trai1 and c == 0 and f == 0:
         chinh_phai1()
+    elif pos == lech_phai1 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_trai1 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_phai1 and c == 0 and f != 0:
+        re_trai()
+    elif pos == lech_trai1 and c == 0 and f != 0:
+        re_trai()
         
     elif pos == lech_phai2 and c == 0 and f == 0:
         chinh_trai2()
     elif pos == lech_trai2 and c == 0 and f == 0:
         chinh_phai2()
+    elif pos == lech_phai2 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_trai2 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_phai2 and c == 0 and f != 0:
+        re_trai()
+    elif pos == lech_trai2 and c == 0 and f != 0:
+        re_trai()
+        
         
     elif pos == lech_phai3 and c == 0 and f == 0:
         chinh_trai3()
     elif pos == lech_trai3 and c == 0 and f == 0:
         chinh_phai3()
+    elif pos == lech_phai3 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_trai3 and c != 0 and f == 0:
+        re_phai()
+    elif pos == lech_phai3 and c == 0 and f != 0:
+        re_trai()
+    elif pos == lech_trai3 and c == 0 and f != 0:
+        re_trai()
+        
         
     elif pos == lech_phai4 and c == 0:
         chinh_trai4()
         f = 0
+        
     elif pos == lech_trai4 and f == 0:
         chinh_phai4()
         c = 0
@@ -266,9 +292,12 @@ while robot.step(TIME_STEP) != -1:
         
     elif pos == full_trang and d == 0 and e == 0:
         di_thang()
+        time = 0
+    elif poss == full trang and time >
     elif pos == full_trang and d != 0:
         c = c + 1   
         d = 0 
     elif pos == full_trang and e != 0:
         f = f + 1
         e = 0
+
