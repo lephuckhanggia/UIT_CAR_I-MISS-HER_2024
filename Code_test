@@ -85,12 +85,22 @@ e = 0
 f = 0
 g = 0
 h = 0
+i = 0
+k = 0
+j = 0
+l = 0
+m = 0
+n = 0
+o = 0
+p = 0
+q = 0
+
 #----------Speed----------#
 speed_max = 60
-speed_min1 = 15
+speed_min1 = 20
 speed_min2 = 35
 speed_min3 = 50
-speed_cua = 25
+speed_cua = 20
 
 #----------Signal----------#
 
@@ -219,10 +229,13 @@ while robot.step(TIME_STEP) != -1:
     dis = ds.getValue()
     pos = DeterminePosition(filted)
     print(" ")
-    print(g)
+    print(c)
+    print(f)
+    print(j)
+    print(l)
     print('Pos: ' + str(format(filted, '08b')), end='   ')
     
-    if pos == chinh_giua and c == 0 and f == 0:
+    if pos == chinh_giua and c == 0 and f == 0 and j == 0 and l == 0:
         di_thang()
         a = 0
         b = 0
@@ -231,14 +244,15 @@ while robot.step(TIME_STEP) != -1:
         re_phai()
     elif pos == chinh_giua and f != 0:
         re_trai()
-    elif pos == chinh_giua and a != 0 and h != 0:
+    elif pos == chinh_giua and i != 0 and h != 0:
         re_phai()
-    elif pos == chinh_giua and b != 0 and h != 0:
+    elif pos == chinh_giua and k != 0 and h != 0:
         re_trai()
         
-    elif pos == lech_phai1 and c == 0 and f == 0 and h == 0:
+        
+    elif pos == lech_phai1 and c == 0 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0 and o == 0 and p == 0:
         chinh_trai1()
-    elif pos == lech_trai1 and c == 0 and f == 0 and h == 0:
+    elif pos == lech_trai1 and c == 0 and f == 0 and k == 0 and i == 0 and m == 0 and n == 0 and o == 0 and p == 0:
         chinh_phai1()
     elif pos == lech_phai1 and c != 0 and f == 0:
         re_phai()
@@ -248,18 +262,29 @@ while robot.step(TIME_STEP) != -1:
         re_trai()
     elif pos == lech_trai1 and c == 0 and f != 0:
         re_trai()
-    elif pos == lech_phai1 and h != 0 and a != 0:
+    elif pos == lech_phai1 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_trai1 and h != 0 and a != 0:
+    elif pos == lech_trai1 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_phai1 and h != 0 and b != 0:
+    elif pos == lech_phai1 and h != 0 and k != 0:
         re_trai()
-    elif pos == lech_trai1 and h != 0 and b != 0:
+    elif pos == lech_trai1 and h != 0 and k != 0:
+        re_trai()
+    elif pos == lech_phai1 and m != 0:
+        re_phai()
+    elif pos == lech_trai1 and m != 0:
+        re_phai()
+    elif pos == lech_phai1 and n != 0:
+        re_trai()
+    elif pos == lech_trai1 and n != 0:
         re_trai()
         
-    elif pos == lech_phai2 and c == 0 and f == 0:
+        
+        
+        
+    elif pos == lech_phai2 and c == 0 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0 and o == 0 and p == 0:
         chinh_trai2()
-    elif pos == lech_trai2 and c == 0 and f == 0:
+    elif pos == lech_trai2 and c == 0 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0 and o == 0 and p == 0:
         chinh_phai2()
     elif pos == lech_phai2 and c != 0 and f == 0:
         re_phai()
@@ -269,19 +294,30 @@ while robot.step(TIME_STEP) != -1:
         re_trai()
     elif pos == lech_trai2 and c == 0 and f != 0:
         re_trai()
-    elif pos == lech_phai2 and h != 0 and a != 0:
+    elif pos == lech_phai2 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_trai2 and h != 0 and a != 0:
+    elif pos == lech_trai2 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_phai2 and h != 0 and b != 0:
+    elif pos == lech_phai2 and h != 0 and k != 0:
         re_trai()
-    elif pos == lech_trai2 and h != 0 and b != 0:
+    elif pos == lech_trai2 and h != 0 and k != 0:
         re_ptrai()
+    elif pos == lech_phai2 and m != 0:
+        re_phai()
+    elif pos == lech_trai2 and m != 0:
+        re_phai()
+    elif pos == lech_phai2 and n != 0:
+        re_trai()
+    elif pos == lech_trai2 and n != 0:
+        re_trai()  
         
         
-    elif pos == lech_phai3 and c == 0 and f == 0:
+            
+ 
+        
+    elif pos == lech_phai3 and c == 0 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0 and o == 0 and p == 0: 
         chinh_trai3()
-    elif pos == lech_trai3 and c == 0 and f == 0:
+    elif pos == lech_trai3 and c == 0 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0 and o == 0 and p == 0:
         chinh_phai3()
     elif pos == lech_phai3 and c != 0 and f == 0:
         re_phai()
@@ -291,45 +327,68 @@ while robot.step(TIME_STEP) != -1:
         re_trai()
     elif pos == lech_trai3 and c == 0 and f != 0:
         re_trai()
-    elif pos == lech_phai3 and h != 0 and a != 0:
+    elif pos == lech_phai3 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_trai3 and h != 0 and a != 0:
+    elif pos == lech_trai3 and h != 0 and i != 0:
         re_phai()
-    elif pos == lech_phai3 and h != 0 and b != 0:
+    elif pos == lech_phai3 and h != 0 and k != 0:
         re_trai()
-    elif pos == lech_trai3 and h != 0 and b != 0:
+    elif pos == lech_trai3 and h != 0 and k != 0:
         re_ptrai()
         
+    elif pos == lech_phai3 and m != 0:
+        re_phai()
+    elif pos == lech_trai3 and m != 0:
+        re_phai()
+    elif pos == lech_phai3 and n != 0:
+        re_trai()
+    elif pos == lech_trai3 and n != 0:
+        re_trai() 
         
-    elif pos == lech_phai4 and c == 0 and a == 0 and b == 0:
+         
+            
+        
+    elif pos == lech_phai4 and c == 0 and i == 0 and k == 0 and m == 0 and n == 0:
         chinh_trai4()
         f = 0
-    elif pos == lech_trai4 and f == 0 and a == 0 and b == 0:
+    elif pos == lech_trai4 and f == 0 and i == 0 and k == 0 and m == 0 and n == 0:
         chinh_phai4()
         c = 0
-    elif pos == lech_phai4 and a == 0 and c == 0 and f == 0:
+    elif pos == lech_phai4 and i == 0 and c == 0 and f == 0 and m == 0 and n == 0:
         chinh_trai4()
-        b = 0
-    elif pos == lech_trai4 and b == 0 and c == 0 and f == 0: 
+        k = 0
+        h = 0
+    elif pos == lech_trai4 and k == 0 and c == 0 and f == 0 and m == 0 and n == 0:
         chinh_phai4()
-        a = 0
+        i = 0
+        h = 0
+    
         
-    elif pos == re_phai:
+    elif pos == re_phai and h == 0:
         a = a + 1
         d = d + 1
-    elif pos == re_trai:
+    elif pos == re_trai and h == 0:
         b = b + 1
         e = e + 1
+    elif filted in [0b00001110,0b00011111,0b00001111,0b00000111, 0b00111110, 0b00011110] and h != 0:
+        i = i + 1
+    elif pos == re_trai and h != 0:
+        k = k + 1
      
-    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0:
+     
+    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0 and g == 0 and h == 0:
         di_thang() 
+
+
+        
     elif pos == full_den and a != 0:
         re_phai()
         d = 0
     elif pos == full_den and b != 0:
         re_trai()
+        print("hello")
         e = 0
-    elif pos == full_den and g != 0:
+    elif pos == full_den and g != 0 and c == 0 and f == 0:
         re_phai()
         h = h + 1
         
@@ -343,3 +402,5 @@ while robot.step(TIME_STEP) != -1:
     elif pos == full_trang and e != 0:
         f = f + 1
         e = 0
+        
+    
