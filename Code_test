@@ -386,7 +386,6 @@ while robot.step(TIME_STEP) != -1:
         d = 0
     elif pos == full_den and b != 0:
         re_trai()
-        print("hello")
         e = 0
     elif pos == full_den and g != 0 and c == 0 and f == 0:
         re_phai()
