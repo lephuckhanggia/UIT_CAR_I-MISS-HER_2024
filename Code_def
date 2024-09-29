@@ -421,11 +421,11 @@ while robot.step(TIME_STEP) != -1:
         q = q + 1
     
         
-    elif pos == re_phai and h == 0:
+    elif pos == re_phai and h == 0 and p == 0 and o == 0:
         a = a + 1
         d = d + 1
         j = j + 1
-    elif pos == re_trai and h == 0:
+    elif pos == re_trai and h == 0 and p == 0 and o == 0:
         b = b + 1
         e = e + 1
         l = l + 1
@@ -447,12 +447,19 @@ while robot.step(TIME_STEP) != -1:
     elif pos == full_den and a != 0 and o == 0 and p == 0:
         re_phai()
         d = 0
+        j = 0
     elif pos == full_den and b != 0 and o == 0 and p == 0:
         re_trai()
         e = 0
+        l = 0
     elif pos == full_den and g != 0 and c == 0 and f == 0:
         re_phai()
         h = h + 1
+    elif pos == full_den and dis != 1000:
+        re_phai()
+        
+        
+        
         
     elif pos == full_trang and d == 0 and e == 0:
         di_thang()
@@ -461,8 +468,10 @@ while robot.step(TIME_STEP) != -1:
     elif pos == full_trang and d != 0:
         c = c + 1   
         d = 0 
+        j = 0
     elif pos == full_trang and e != 0:
         f = f + 1
         e = 0
+        l = 0
         
     
