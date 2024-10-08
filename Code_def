@@ -102,7 +102,7 @@ u = 0
 #----------Speed----------#
 speed_max = 60
 speed_min1 = 15
-speed_min2 = 35
+speed_min2 = 40
 speed_min3 = 45
 speed_cua = 20
 speed_cua_nhe = 15
