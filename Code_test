@@ -101,12 +101,14 @@ v = 0
 w = 0
 x = 0
 y = 0
+z = 0
+ab = 0
 
 #----------Speed----------#
 speed_max = 60
-speed_min1 = 15
-speed_min2 = 35
-speed_min3 = 45
+speed_min1 = 20
+speed_min2 = 30
+speed_min3 = 40
 speed_cua = 15
 speed_cua_nhe = 15
 
@@ -221,7 +223,7 @@ def DeterminePosition(filted):
 
     elif filted in [0b11000000,0b10000000,0b01000000]:
         return lech_phai4
-    elif filted in [0b00000001,0b00000010]:
+    elif filted in [0b00000001,0b00000010, 0b00000011]:
         return lech_trai4
     
     elif filted in [0b00001110,0b00011111,0b00001111,0b00000111]:
@@ -245,8 +247,7 @@ while robot.step(TIME_STEP) != -1:
     dis = ds.getValue()
     pos = DeterminePosition(filted)
     print(" ")
-    print(a)
-    print(b) 
+    print(ab)
     print('Pos: ' + str(format(filted, '08b')), end='   ')
     
     if pos == chinh_giua and c == 0 and f == 0 and j == 0 and l == 0 and m == 0 and n == 0 and o == 0 and p == 0 and s == 0 and u == 0:
@@ -294,10 +295,12 @@ while robot.step(TIME_STEP) != -1:
         
     elif pos == lech_phai1 and c == 0 and f == 0 and i == 0 and m == 0 and n == 0 and o == 0 and p == 0 and s == 0 and u == 0:
         chinh_trai1()
+        ab = 0
         w = 0
         y = 0
     elif pos == lech_trai1 and c == 0 and f == 0 and i == 0 and m == 0 and n == 0 and o == 0 and p == 0 and s == 0 and u == 0:
         chinh_phai1()
+        z = 0
         v = 0
         x = 0
     elif pos == lech_phai1 and c != 0 and f == 0:
@@ -485,9 +488,10 @@ while robot.step(TIME_STEP) != -1:
             
     elif pos == lech_phai4 and c == 0 and i == 0 and m == 0 and n == 0 and p == 0 and o == 0 and u == 0 and f == 0 and y == 0:
         chinh_trai4()
-        print("hello")
+        z = z + 1
     elif pos == lech_trai4 and c == 0 and i == 0 and m == 0 and n == 0 and p == 0 and o == 0 and u == 0 and f == 0 and x == 0:
         chinh_phai4()
+        ab = ab + 1
     elif pos == lech_phai4 and c == 0 and i == 0 and m == 0 and n == 0 and p == 0 and o == 0 and u == 0 and f == 0 and y != 0:
         re_trai()
     elif pos == lech_trai4 and c == 0 and i == 0 and m == 0 and n == 0 and p == 0 and o == 0 and u == 0 and f == 0 and x != 0:
@@ -530,7 +534,7 @@ while robot.step(TIME_STEP) != -1:
     elif filted in [0b00001110,0b00011111,0b00001111,0b00000111, 0b00111110, 0b00011110] and t != 0:
         u = u + 1
      
-    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0 and g == 0 and h == 0 and q == 0 and dis == 1000 and r == 0 and u == 0:
+    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0 and g == 0 and h == 0 and q == 0 and dis == 1000 and r == 0 and u == 0 and z == 0 and ab == 0:
         di_thang()
         if m != 0:
             m = 0
@@ -538,7 +542,10 @@ while robot.step(TIME_STEP) != -1:
         if n != 0:
             p = p + 1
             n = 0
-        
+    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0 and g == 0 and h == 0 and q == 0 and dis == 1000 and r == 0 and u == 0 and z != 0:
+        re_trai()
+    elif pos == full_den and a == 0 and b == 0 and c == 0 and f == 0 and g == 0 and h == 0 and q == 0 and dis == 1000 and r == 0 and u == 0 and ab != 0:
+        re_phai()
         
     elif pos == full_den and a != 0 and o == 0 and p == 0:
         re_phai()
