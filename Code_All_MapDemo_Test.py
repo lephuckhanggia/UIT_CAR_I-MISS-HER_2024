@@ -93,7 +93,7 @@ p = 0
 q = 0
 r = 0
 s = 0
-t = 0
+t = 0   
 u = 0
 v = 0
 w = 0
@@ -104,7 +104,7 @@ ab = 0
 
 # ----------Speed----------#
 speed_max = 64
-speed_extra_max = 70
+speed_extra_max = 80
 speed_min1 = 15
 speed_min2 = 30
 speed_min3 = 40
