@@ -104,14 +104,12 @@ ab = 0
 
 # ----------Speed----------#
 speed_max = 64
-speed_extra_max = 64
+speed_extra_max = 70
 speed_min1 = 15
-speed_min2 = 25
-speed_min3 = 30
+speed_min2 = 30
+speed_min3 = 40
 speed_cua = 20
 speed_cua_nhe = 15
-speed_cua_min_lui = 1.25
-speed_cua_min_toi = 0.75
 
 # ----------Signal----------#
 
@@ -124,8 +122,8 @@ lech_phai3 = 3
 lech_trai3 = -3
 lech_phai4 = 4
 lech_trai4 = -4
-re_phai = 5
-re_trai = -5
+re_phai = -5
+re_trai = 5
 full_trang = 99
 full_den = 11
 
@@ -190,23 +188,23 @@ def dung_yen():
 # ----------Turn----------#
 
 def re_phai():
-    lm.setVelocity(speed_cua * speed_cua_min_toi)
-    rm.setVelocity(speed_cua - speed_cua * speed_cua_min_lui)
+    lm.setVelocity(speed_cua)
+    rm.setVelocity(speed_cua - speed_cua * 2)
 
 
 def re_trai():
-    lm.setVelocity(speed_cua - speed_cua * speed_cua_min_lui)
-    rm.setVelocity(speed_cua* speed_cua_min_toi)
+    lm.setVelocity(speed_cua - speed_cua * 2)
+    rm.setVelocity(speed_cua)
 
 
 def re_phai_nhe():
-    lm.setVelocity(speed_cua_nhe* speed_cua_min_toi)
-    rm.setVelocity(speed_cua_nhe - speed_cua_nhe * speed_cua_min_lui)
+    lm.setVelocity(speed_cua_nhe)
+    rm.setVelocity(speed_cua_nhe - speed_cua_nhe * 2)
 
 
 def re_trai_nhe():
-    lm.setVelocity(speed_cua_nhe - speed_cua_nhe * speed_cua_min_lui)
-    rm.setVelocity(speed_cua_nhe* speed_cua_min_toi)
+    lm.setVelocity(speed_cua_nhe - speed_cua_nhe * 2)
+    rm.setVelocity(speed_cua_nhe)
 
 
 # ----------Def_sensor----------#
